@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="BMI calculator – compute Body Mass Index from height and weight." />
+  <title>BMI Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="container py-4 tool-container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="tool-panel">
+          <h1 class="h3 mb-3">BMI Calculator</h1>
+          <div class="row g-2 align-items-end">
+            <div class="col-6">
+              <label class="form-label">Height (cm)</label>
+              <input id="bmi-h" type="number" class="form-control" placeholder="170" />
+            </div>
+            <div class="col-6">
+              <label class="form-label">Weight (kg)</label>
+              <input id="bmi-w" type="number" class="form-control" placeholder="65" />
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="p-3 bg-light rounded">BMI: <span id="bmi-r" class="fw-bold">—</span> <small id="bmi-c" class="text-muted"></small></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4"><div class="ad-slot sidebar-ad">Ad 300x250</div></div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/includes.js"></script>
+  <script>
+  (function(){
+    function classify(b){
+      if(b<18.5) return 'Underweight';
+      if(b<25) return 'Normal';
+      if(b<30) return 'Overweight';
+      return 'Obese';
+    }
+    function calc(){
+      var h=parseFloat(document.getElementById('bmi-h').value);
+      var w=parseFloat(document.getElementById('bmi-w').value);
+      var out='—', c='';
+      if(!isNaN(h)&&!isNaN(w)&&h>0){
+        var m=h/100; var b=w/(m*m);
+        out=b.toFixed(1); c=classify(b);
+      }
+      document.getElementById('bmi-r').textContent=out;
+      document.getElementById('bmi-c').textContent=c;
+    }
+    ['bmi-h','bmi-w'].forEach(function(id){document.getElementById(id).addEventListener('input',calc)});
+  })();
+  </script>
+</body>
+</html>
+

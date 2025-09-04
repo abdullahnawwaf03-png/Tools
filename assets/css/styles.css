@@ -1,0 +1,16 @@
+:root{
+  --brand:#0d6efd;
+}
+body{background:#f8f9fa;color:#212529}
+.tool-card{height:100%}
+.tool-card .card-body{display:flex;flex-direction:column}
+.tool-card .card-title{min-height:3rem}
+.tool-card .btn{margin-top:auto}
+.ad-slot{background:#e9ecef;border:1px dashed #adb5bd;border-radius:.5rem;color:#6c757d;display:flex;align-items:center;justify-content:center;height:90px}
+header.navbar{background:#fff;border-bottom:1px solid #e9ecef}
+footer{background:#fff;border-top:1px solid #e9ecef}
+.category-btn.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+.tool-container{max-width:920px}
+.tool-panel{background:#fff;border:1px solid #e9ecef;border-radius:.75rem;padding:1rem}
+.sidebar-ad{height:250px}
+
